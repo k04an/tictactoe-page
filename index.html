@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        #cross {
+            position: absolute;
+            animation: cross-fall 10s ease-in-out 4.5s infinite forwards;
+        }
+
+        @keyframes cross-fall {
+            0% {
+                top: -100px;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                top: 500px;
+                transform: rotate(90deg);
+            }
+        }
+
+        #bottom-wave {
+            position: absolute;
+            bottom: 0; 
+            left: 0;
+            margin-bottom: -1000px;
+            animation: bottom-wave-appear 4s ease-in-out 0.5s 1 forwards normal;
+        }
+
+        @keyframes bottom-wave-appear {
+            0% {
+                margin-bottom: -1000px;
+            }
+
+            50% {
+                margin-bottom: -250px;
+            }
+
+            100% {
+                margin-bottom: -300px;
+            }
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100vh;
+        }
+
+        @keyframes window-appear {
+            0% {
+                opacity: 0%;
+                margin-top: -40px;
+            }
+
+            100% {
+                opacity: 100%;
+                margin-top: 0px;
+            }
+        }
+
+        .window {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 600px;
+            background-color: white;
+            z-index: 1;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.2);
+            opacity: 0%;
+            margin-top: -40px;
+            animation: window-appear 0.5s ease-in-out 2.5s 1 forwards normal;
+        }
+
+        @media screen and (max-width: 525px) {
+            .window {
+                width: 100%;
+                border-radius: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="window">
+
+        </div>
+    </div>
+
+    <svg style="left: 340px; top: -100px" id="cross" width="80" height="80" viewBox="0 0 324 324" fill="#EE4747" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="291.5" cy="32.5" r="32.5" fill="#EE4747"/>
+        <circle cx="32.5" cy="291.5" r="32.5" fill="#EE4747"/>
+        <line x1="34.019" y1="290.019" x2="293.019" y2="31.019" stroke="#EE4747" stroke-width="65"/>
+        <circle cx="32.5" cy="32.5" r="32.5" transform="rotate(-90 32.5 32.5)" fill="#EE4747"/>
+        <circle cx="291.5" cy="291.5" r="32.5" transform="rotate(-90 291.5 291.5)" fill="#EE4747"/>
+        <line x1="290.019" y1="289.981" x2="31.019" y2="30.981" stroke="#EE4747" stroke-width="65"/>
+    </svg>        
+
+    <svg id="bottom-wave" width="1920" height="839" viewBox="0 0 1920 839" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M659.782 114.389C374.525 -17.1411 101.07 37.4452 0 81.1796V839H1920V81.1796C1902.71 121.103 1840.51 200.514 1729.99 198.772C1591.85 196.595 1418.31 -44.035 1202.87 7.13963C987.429 58.3143 1016.35 278.801 659.782 114.389Z" fill="#444444">
+            <animate attributeName="d"
+            values="
+            M659.782 114.389C374.525 -17.1411 101.07 37.4452 0 81.1796V839H1920V81.1796C1902.71 121.103 1840.51 200.514 1729.99 198.772C1591.85 196.595 1418.31 -44.035 1202.87 7.13963C987.429 58.3143 1016.35 278.801 659.782 114.389Z;
+            M508.5 94.4794C358.967 13.414 101.07 -27.1452 0 20.1133V839H1920V94.4794C1902.71 137.62 1823.5 196.091 1703.5 165.258C1593.5 136.993 1596 8.03297 1176.5 56.1188C956.302 81.3594 803.5 254.405 508.5 94.4794Z;
+            M573.5 22.5C304 -53.5 101.07 84.4452 0 128.18V886H1920V128.18C1902.71 168.103 1807.51 287.242 1697 285.5C1558.86 283.322 1498.16 -28.3245 1319.5 102.5C974 355.5 820.718 92.2162 573.5 22.5Z;
+            M659.782 114.389C374.525 -17.1411 101.07 37.4452 0 81.1796V839H1920V81.1796C1902.71 121.103 1840.51 200.514 1729.99 198.772C1591.85 196.595 1418.31 -44.035 1202.87 7.13963C987.429 58.3143 1016.35 278.801 659.782 114.389Z;
+            "
+            dur="40s"
+            repeatCount="indefinite"/>
+        </path>
+    </svg>    
+
+    <script>
+        class Cross {
+            constructor() {
+                this.left = Math.random() * window.innerWidth;
+                this.top = Math.random() * -500;
+                this.scale = Math.random() * 1.5
+            }
+
+            add() {
+               $('body').append(`
+               <svg style="left: 340px; top: -100px" id="cross" width="80" height="80" viewBox="0 0 324 324" fill="#EE4747" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="291.5" cy="32.5" r="32.5" fill="#EE4747"/>
+                    <circle cx="32.5" cy="291.5" r="32.5" fill="#EE4747"/>
+                    <line x1="34.019" y1="290.019" x2="293.019" y2="31.019" stroke="#EE4747" stroke-width="65"/>
+                    <circle cx="32.5" cy="32.5" r="32.5" transform="rotate(-90 32.5 32.5)" fill="#EE4747"/>
+                    <circle cx="291.5" cy="291.5" r="32.5" transform="rotate(-90 291.5 291.5)" fill="#EE4747"/>
+                    <line x1="290.019" y1="289.981" x2="31.019" y2="30.981" stroke="#EE4747" stroke-width="65"/>
+                </svg>  
+               `)      
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
