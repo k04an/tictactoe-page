@@ -7,16 +7,56 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div class="wrapper">
-        <div class="window">
+        <div class="window" id="home-window" style="display: none;">
              <button class="btnCreateRoom">Test button</button>
+        </div>
+
+        <div class="window" id="game-field" style="display: none;">
+            <div class="field-menu">
+                <div class="cross-score">
+                    <svg style="margin-right: 20px;" height="35px" width="35px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="291.5" cy="32.5" r="32.5" fill="#303030"/>
+                        <circle cx="32.5" cy="291.5" r="32.5" fill="#303030"/>
+                        <line x1="34.019" y1="290.019" x2="293.019" y2="31.019" stroke="#303030" stroke-width="65"/>
+                        <circle cx="32.5" cy="32.5" r="32.5" transform="rotate(-90 32.5 32.5)" fill="#303030"/>
+                        <circle cx="291.5" cy="291.5" r="32.5" transform="rotate(-90 291.5 291.5)" fill="#303030"/>
+                        <line x1="290.019" y1="289.981" x2="31.019" y2="30.981" stroke="#303030" stroke-width="65"/>
+                    </svg>
+                    <span>0</span>                  
+                </div>
+
+                <div class="buttons">
+                    <div>Назад в лобби</div>
+                </div>
+
+                <div class="nought-score">
+                    <span>0</span>   
+                    <svg style="margin-left: 20px;" width="35px" height="35px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="162" cy="162" r="139.5" stroke="#303030" stroke-width="45"/>
+                    </svg>                   
+                </div>
+            </div>
+
+            <div class="field-body">
+                <table class="field">
+                    <tbody>
+                        <tr><td style="border-bottom: 10px solid #303030; border-right: 10px solid #303030;"></td><td></td><td style="border-bottom: 10px solid #303030; border-left: 10px solid #303030;"></td></tr>
+                        <tr><td></td><td style="border: 10px solid #303030"></td><td></td></tr>
+                        <tr><td style="border-top: 10px solid #303030; border-right: 10px solid #303030;"></td><td></td><td style="border-top: 10px solid #303030; border-left: 10px solid #303030;"></td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>       
 
     <svg style="animation: bottom-wave-appear 4s ease-in-out 0.5s 1 forwards normal" id="bottom-wave" viewBox="0 0 1920 1569" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M637 151.813C302.885 -22.0868 101.07 70.0256 0 151.813V1569H1920V151.813C1902.71 226.473 1846.83 246.353 1712 216C1577.17 185.647 1398.5 -56 1202.87 13.3517C980.677 92.1182 867.718 271.896 637 151.813Z" fill="#444444">
+        <path d="M637 151.813C302.885 -22.0868 101.07 70.0256 0 151.813V1569H1920V151.813C1902.71 226.473 1846.83 246.353 1712 216C1577.17 185.647 1398.5 -56 1202.87 13.3517C980.677 92.1182 867.718 271.896 637 151.813Z" fill="#303030">
             <animate attributeName="d"
             values="
             M637 151.813C302.885 -22.0868 101.07 70.0256 0 151.813V1569H1920V151.813C1902.71 226.473 1846.83 246.353 1712 216C1577.17 185.647 1398.5 -56 1202.87 13.3517C980.677 92.1182 867.718 271.896 637 151.813Z;
@@ -27,7 +67,7 @@
             dur="40s"
             repeatCount="indefinite"/>
         </path>
-    </svg>    
+    </svg>
 
     <script src="js/effects.js"></script>
     <script src="js/handlers.js"></script>

@@ -1,5 +1,7 @@
         // Константы для настройки эффектов
-        const FIGURES = 6 // Будет уножино на три для каждой фигуры
+const FIGURES = 6 // Будет уножино на три для каждой фигуры
+
+let isShapesOn = true
         // Классы
 class Cross {
     constructor() {
@@ -33,7 +35,7 @@ class Cross {
            },
            complete: function() {
                let newCross = new Cross()
-               newCross.add()
+               if (isShapesOn) newCross.add()
                $(this).remove()
            }
        })
@@ -66,48 +68,87 @@ class Nought {
            },
            complete: function() {
                let newNought = new Nought()
-               newNought.add()
+               if (isShapesOn) newNought.add()
                $(this).remove()
            }
        })
     }
 }
+        // Графические функции
+function displayWindow(selector, show) {
+    switch (show) {
+        case true:
+            $(selector).show()
+            $(selector).animate({
+                'opacity': 1,
+                'margin-top': '0px'
+            }, 500)
+            break
+        case false:
+            $(selector).animate({
+                'opacity': 0,
+                'margin-top': '-40px'
+            }, {
+                duration: 500,
+                complete: () => {
+                    $(selector).hide()
+                }
+            })
+            break
+    }
+}
+
+function toggleFallingShapes(toggle) {
+    switch (toggle) {
+        case true:
+            isShapesOn = true
+            setTimeout(function() {
+                for (let i = 1; i < FIGURES; i++) {
+                    let cross = new Cross()
+                    cross.add()
+                }
+            }, 1500)
+            setTimeout(function() {
+                for (let i = 1; i < FIGURES; i++) {
+                    let cross = new Cross()
+                    cross.add()
+                }
+            }, 5000)
+            setTimeout(function() {
+                for (let i = 1; i < FIGURES; i++) {
+                    let cross = new Cross()
+                    cross.add()
+                }
+            }, 8500)
+            // Отрисовка ноликов
+            setTimeout(function() {
+                for (let i = 1; i < FIGURES; i++) {
+                    let nought = new Nought()
+                    nought.add()
+                }
+            }, 1500)
+            setTimeout(function() {
+                for (let i = 1; i < FIGURES; i++) {
+                    let nought = new Nought()
+                    nought.add()
+                }
+            }, 5000)
+            setTimeout(function() {
+                for (let i = 1; i < FIGURES; i++) {
+                    let nought = new Nought()
+                    nought.add()
+                }
+            }, 8500)
+            break
+        case false:
+            isShapesOn = false
+            $('.falling-shape').remove()
+    }
+}
         // Создание эффектов
 // Отрисовка крестов. Рисуем 2 группы с некоторым интервалом, для обеспечения непрерывного падения
-setTimeout(function() {
-    for (let i = 1; i < FIGURES; i++) {
-        let cross = new Cross()
-        cross.add()
-    }
-}, 1500)
-setTimeout(function() {
-    for (let i = 1; i < FIGURES; i++) {
-        let cross = new Cross()
-        cross.add()
-    }
-}, 5000)
-setTimeout(function() {
-    for (let i = 1; i < FIGURES; i++) {
-        let cross = new Cross()
-        cross.add()
-    }
-}, 8500)
-// Отрисовка ноликов
-setTimeout(function() {
-    for (let i = 1; i < FIGURES; i++) {
-        let nought = new Nought()
-        nought.add()
-    }
-}, 1500)
-setTimeout(function() {
-    for (let i = 1; i < FIGURES; i++) {
-        let nought = new Nought()
-        nought.add()
-    }
-}, 5000)
-setTimeout(function() {
-    for (let i = 1; i < FIGURES; i++) {
-        let nought = new Nought()
-        nought.add()
-    }
-}, 8500)    
+toggleFallingShapes(true)
+
+setTimeout(() => {
+    displayWindow('#home-window', true)
+}, 2500)
