@@ -5,7 +5,7 @@ class Cross {
     constructor() {
         this.left = Math.random() * window.innerWidth;
         this.top = Math.random() * -450 - 81;
-        this.to = Math.random() * 200 + (window.innerHeight / 2) + 200
+        this.to = Math.random() * 200 + (window.innerHeight / 3 * 2) + 200
         this.size = Math.random() * 60 + 20
         this.id = (Math.random() + 1).toString(36).substring(7)
         this.deg = Math.random() * 90 + 90
@@ -43,7 +43,7 @@ class Nought {
     constructor() {
         this.left = Math.random() * window.innerWidth;
         this.top = Math.random() * -450 - 81;
-        this.to = Math.random() * 200 + (window.innerHeight / 2) + 200
+        this.to = Math.random() * 200 + (window.innerHeight / 3 * 2) + 200
         this.size = Math.random() * 60 + 20
         this.id = (Math.random() + 1).toString(36).substring(7)
         this.deg = Math.random() * 90 + 90

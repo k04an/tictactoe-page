@@ -16,8 +16,7 @@ body {
     position: absolute;
     bottom: 0; 
     left: 0;
-    margin-bottom: -1000px;
-    animation: bottom-wave-appear 4s ease-in-out 0.5s 1 forwards normal;
+    margin-bottom: -200vh;
     z-index: 2;
 }
 
@@ -58,15 +57,15 @@ body {
 
 @keyframes bottom-wave-appear {
     0% {
-        margin-bottom: -1000px;
+        margin-bottom: -200vh;
     }
 
     50% {
-        margin-bottom: -250px;
+        margin-bottom: -80vh;
     }
 
     100% {
-        margin-bottom: -300px;
+        margin-bottom: -90vh;
     }
 }
 
