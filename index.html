@@ -18,39 +18,61 @@
         </div>
 
         <div class="window" id="game-field" style="display: none;">
-            <div class="field-menu">
-                <div class="cross-score">
-                    <svg style="margin-right: 20px;" height="35px" width="35px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="291.5" cy="32.5" r="32.5" fill="#303030"/>
-                        <circle cx="32.5" cy="291.5" r="32.5" fill="#303030"/>
-                        <line x1="34.019" y1="290.019" x2="293.019" y2="31.019" stroke="#303030" stroke-width="65"/>
-                        <circle cx="32.5" cy="32.5" r="32.5" transform="rotate(-90 32.5 32.5)" fill="#303030"/>
-                        <circle cx="291.5" cy="291.5" r="32.5" transform="rotate(-90 291.5 291.5)" fill="#303030"/>
-                        <line x1="290.019" y1="289.981" x2="31.019" y2="30.981" stroke="#303030" stroke-width="65"/>
-                    </svg>
-                    <span>0</span>                  
+            <div style="position: relative; width: 100%; height: 100%;">
+                <div class="field-menu">
+                    <div class="cross-score">
+                        <svg style="margin-right: 20px;" height="35px" width="35px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="291.5" cy="32.5" r="32.5" fill="#303030"/>
+                            <circle cx="32.5" cy="291.5" r="32.5" fill="#303030"/>
+                            <line x1="34.019" y1="290.019" x2="293.019" y2="31.019" stroke="#303030" stroke-width="65"/>
+                            <circle cx="32.5" cy="32.5" r="32.5" transform="rotate(-90 32.5 32.5)" fill="#303030"/>
+                            <circle cx="291.5" cy="291.5" r="32.5" transform="rotate(-90 291.5 291.5)" fill="#303030"/>
+                            <line x1="290.019" y1="289.981" x2="31.019" y2="30.981" stroke="#303030" stroke-width="65"/>
+                        </svg>
+                        <span>0</span>                  
+                    </div>
+    
+                    <div class="buttons">
+                        <div>Назад в лобби</div>
+                    </div>
+    
+                    <div class="nought-score">
+                        <span>0</span>   
+                        <svg style="margin-left: 20px;" width="35px" height="35px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="162" cy="162" r="139.5" stroke="#303030" stroke-width="45"/>
+                        </svg>                   
+                    </div>
+                </div>
+    
+                <div class="field-body">
+                    <table class="field">
+                        <tbody>
+                            <tr><td style="border-bottom: 10px solid #303030; border-right: 10px solid #303030;"></td><td></td><td style="border-bottom: 10px solid #303030; border-left: 10px solid #303030;"></td></tr>
+                            <tr><td></td><td style="border: 10px solid #303030"></td><td></td></tr>
+                            <tr><td style="border-top: 10px solid #303030; border-right: 10px solid #303030;"></td><td></td><td style="border-top: 10px solid #303030; border-left: 10px solid #303030;"></td></tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="buttons">
-                    <div>Назад в лобби</div>
+                <div class="field-log">Тут будет информация о ходе игры</div>
+    
+                <div class="slide">
+                    <div class="headtext">Здесь будет информация о результате игры</div>
+                    <div class="shape">
+                        <svg height="120px" width="120px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="291.5" cy="32.5" r="32.5" fill="#EE4747"/>
+                            <circle cx="32.5" cy="291.5" r="32.5" fill="#EE4747"/>
+                            <line x1="34.019" y1="290.019" x2="293.019" y2="31.019" stroke="#EE4747" stroke-width="65"/>
+                            <circle cx="32.5" cy="32.5" r="32.5" transform="rotate(-90 32.5 32.5)" fill="#EE4747"/>
+                            <circle cx="291.5" cy="291.5" r="32.5" transform="rotate(-90 291.5 291.5)" fill="#EE4747"/>
+                            <line x1="290.019" y1="289.981" x2="31.019" y2="30.981" stroke="#EE4747" stroke-width="65"/>
+                        </svg>
+                    </div>
+                    <div class="curtain-buttons">
+                        <div>Назад в лобби</div>
+                        <div>Новая игра</div>
+                    </div>
                 </div>
-
-                <div class="nought-score">
-                    <span>0</span>   
-                    <svg style="margin-left: 20px;" width="35px" height="35px" viewBox="0 0 324 324" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="162" cy="162" r="139.5" stroke="#303030" stroke-width="45"/>
-                    </svg>                   
-                </div>
-            </div>
-
-            <div class="field-body">
-                <table class="field">
-                    <tbody>
-                        <tr><td style="border-bottom: 10px solid #303030; border-right: 10px solid #303030;"></td><td></td><td style="border-bottom: 10px solid #303030; border-left: 10px solid #303030;"></td></tr>
-                        <tr><td></td><td style="border: 10px solid #303030"></td><td></td></tr>
-                        <tr><td style="border-top: 10px solid #303030; border-right: 10px solid #303030;"></td><td></td><td style="border-top: 10px solid #303030; border-left: 10px solid #303030;"></td></tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>       
@@ -70,6 +92,6 @@
     </svg>
 
     <script src="js/effects.js"></script>
-    <script src="js/handlers.js"></script>
+    <script src="js/ui-handlers.js"></script>
 </body>
 </html>
