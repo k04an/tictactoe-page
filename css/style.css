@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 body {
@@ -44,6 +44,34 @@ body {
 #home-window {
     width: 400px;
     height: 600px;
+}
+
+#home-window > div > div {
+    width: 100%;
+}
+
+#home-window > div > .home-header, #home-window > div > .home-footer {
+    height: 50px;
+}
+
+#home-window > div > .home-header {
+    box-shadow: 0px 2px 2px -2px rgba(34, 60, 80, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+#home-window > div > .home-header > p > span {
+    margin: 0 15px;
+}
+
+#home-window > div > .home-header > p > span:nth-child(1) {
+    color: #EE4747;
+}
+
+#home-window > div > .home-header > p > span:nth-child(2) {
+    color: #2B8F8F;
 }
 
 #game-field {
@@ -189,8 +217,6 @@ body {
         stroke-dashoffset: 0;
     }
 }
-
-/* 875 355 */
 
     /* Adaptive styles */
 @media screen and (max-width: 525px) {
